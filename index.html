@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Shikho</title>
+    <!-- Daisy UI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/ba3d7c1412.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+        font-weight: normal;
+        font-style: normal;
+      }
+      .bangla {
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: normal;
+        font-style: normal;
+      }
+      .text-title {
+        color: #00bcff;
+      }
+      .active {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="font-poppins">
+    <!-- Header -->
+    <header id="navbar" class="hidden bg-slate-100 py-4 border-b-2 border-slate-200 sticky top-0">
+      <nav class="w-11/12 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold">Englsih</span>
+          <img src="./assets/logo.png" alt="Logo" />
+          <span class="bangla">জানালা</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            class="border border-blue-800 btn hover:bg-blue-800 hover:text-white"
+            href="#faq"
+          >
+            <i class="fa-solid fa-circle-question"></i>
+            <span>FAQ</span>
+          </a>
+          <a
+            class="border border-blue-800 btn hover:bg-blue-800 hover:text-white"
+            href="#learn"
+          >
+            <i class="fa-solid fa-book-open"></i>
+            <span>Learn</span>
+          </a>
+          <button
+            onclick="logout()"
+            class="border border-blue-800 btn hover:bg-blue-800 hover:text-white"
+            href="#"
+          >
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section id="banner" class="w-11/12 mx-auto">
+      <div class="grid grid-cols-6 items-center gap-4">
+        <div class="col-span-3">
+          <h1 class="text-4xl font-bold">
+            <span class="text-title">English</span> is Easy!!
+          </h1>
+          <p class="text-xl py-4 bangla">
+            আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+            <br />
+            আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে
+            <br />
+            অন্য একটি Level এ
+          </p>
+          <form onsubmit="login(event)" action="#" class="flex flex-col gap-4">
+            <input id="user-name" type="text" placeholder="Enter your name" class="input" />
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter the password 123456"
+              class="input"
+            />
+            <button type="submit" class="btn btn-primary w-1/4">Get Started</button>
+          </form>
+        </div>
+        <div class="col-span-3">
+          <img src="./assets/hero-student.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Section -->
+    <main id="main" class="hidden w-11/12 mx-auto py-10">
+      <!-- Learn Vocabularies -->
+      <section id="learn" class="pt-25 pb-10">
+        <h1 class="mb-8 text-center text-3xl font-bold">
+          <span class="text-title">Let's</span> Learn Vocabularies
+        </h1>
+        <!-- Show Category Wise button -->
+        <div
+          id="category-container"
+          class="flex gap-3 justify-center items-center"
+        ></div>
+
+        <!-- Not Find Vocabulary Section -->
+        <div
+          id="not-find-vocabulary"
+          class="text-center py-20 bg-slate-100 my-10 rounded"
+        >
+          <p class="text-slate-600 mb-4">আপনি এখনো কোন Lesson Select করেন নি</p>
+          <h1 class="text-3xl font-medium">একটি Lesson Select করুন।</h1>
+        </div>
+
+        <!-- Find Vocabulary Section -->
+        <div id="find-vocabulary" class="grid grid-cols-3 gap-5 my-10"></div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="pt-25 pb-10 space-y-3">
+        <h1 class="mb-8 text-center text-3xl font-bold">
+          <span class="text-title">Frequently</span> Asked Questions
+        </h1>
+        <!-- Q-1 -->
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" checked="checked" />
+          <div class="collapse-title font-semibold">
+            What is the difference between var, let, and const?
+          </div>
+          <div class="collapse-content text-sm">
+            <div class="px-6 font-sans">
+              <div class="max-w-6xl mx-auto px-5 my-5">
+                <div class="space-y-4">
+                  <div class="bg-blue-100 p-4 rounded-lg">
+                    <h2 class="text-xl font-semibold text-blue-800">var</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                      <li>Function scoped (ব্লক স্কোপ না)</li>
+                      <li>Same variable can be redeclared and updated</li>
+                      <li>Hoisted to the top of its scope</li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-green-100 p-4 rounded-lg">
+                    <h2 class="text-xl font-semibold text-green-800">let</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                      <li>Block scoped ({} এর ভিতরে সীমাবদ্ধ)</li>
+                      <li>
+                        Can be updated but not redeclared in the same scope
+                      </li>
+                      <li>
+                        Hoisted but not initialized (ReferenceError if accessed
+                        before declaration)
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="bg-yellow-100 p-4 rounded-lg">
+                    <h2 class="text-xl font-semibold text-yellow-800">const</h2>
+                    <ul class="list-disc list-inside text-gray-700">
+                      <li>Block scoped</li>
+                      <li>Cannot be updated or redeclared</li>
+                      <li>Must be initialized at the time of declaration</li>
+                      <li>
+                        For objects/arrays, properties can be changed, but the
+                        reference can’t
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Q-2 -->
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            what is the difference between map(), forEach(), and filter()?
+          </div>
+          <div class="collapse-content text-sm">
+            <div class="max-w-6xl mx-auto p-6 my-5">
+              <div class="space-y-6">
+                <!-- map() -->
+                <div class="p-4 border border-blue-200 rounded-lg bg-blue-50">
+                  <h3 class="text-xl font-semibold text-blue-700 mb-2">
+                    map()
+                  </h3>
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-medium">map()</span> একটি নতুন অ্যারে
+                    রিটার্ন করে, যেখানে প্রতিটি উপাদান কিছু পরিবর্তন বা প্রসেসের
+                    মাধ্যমে তৈরি হয়।
+                  </p>
+                  <pre
+                    class="bg-white p-3 rounded-md text-sm text-gray-800 overflow-auto"
+                  ><code>
+            const numbers = [1, 2, 3];
+            const doubled = numbers.map(num => num * 2);
+            // doubled: [2, 4, 6]
+                  </code></pre>
+                </div>
+
+                <!-- forEach() -->
+                <div class="p-4 border border-green-200 rounded-lg bg-green-50">
+                  <h3 class="text-xl font-semibold text-green-700 mb-2">
+                    forEach()
+                  </h3>
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-medium">forEach()</span> শুধুমাত্র প্রতিটি
+                    উপাদানের উপর কাজ করে, কিন্তু কোনো নতুন অ্যারে রিটার্ন করে
+                    না।
+                  </p>
+                  <pre
+                    class="bg-white p-3 rounded-md text-sm text-gray-800 overflow-auto"
+                  ><code>
+            const numbers = [1, 2, 3];
+            numbers.forEach(num => {
+              console.log(num * 2);
+            });
+            // Output: 2, 4, 6 (but no return)
+                  </code></pre>
+                </div>
+
+                <!-- filter() -->
+                <div
+                  class="p-4 border border-purple-200 rounded-lg bg-purple-50"
+                >
+                  <h3 class="text-xl font-semibold text-purple-700 mb-2">
+                    filter()
+                  </h3>
+                  <p class="text-gray-700 mb-2">
+                    <span class="font-medium">filter()</span> একটি নতুন অ্যারে
+                    রিটার্ন করে, যেখানে শুধুমাত্র সেই উপাদানগুলো থাকে যেগুলো
+                    একটি শর্ত পূরণ করে।
+                  </p>
+                  <pre
+                    class="bg-white p-3 rounded-md text-sm text-gray-800 overflow-auto"
+                  ><code>
+            const numbers = [1, 2, 3, 4];
+            const even = numbers.filter(num => num % 2 === 0);
+            // even: [2, 4]
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Q-3 -->
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            Explain arrow functions and how they are different from regular
+            functions.
+          </div>
+          <div class="collapse-content text-sm">
+            <div class="max-w-6xl mx-auto p-6 my-5">
+              <div class="space-y-4 text-gray-700">
+                <p>
+                  <span class="font-semibold">Arrow Function</span> হলো
+                  JavaScript ES6 এ আসা একটি নতুন ধরনের ফাংশন লেখার shorthand
+                  (সংক্ষিপ্ত) উপায়।
+                </p>
+
+                <h2 class="text-xl font-semibold text-gray-800 mt-4">
+                  Arrow Function Syntax:
+                </h2>
+                <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <code>const add = (a, b) =&gt; {
+              return a + b;
+            }</code>
+                </pre>
+
+                <h2 class="text-xl font-semibold text-gray-800 mt-4">
+                  Regular Function Syntax:
+                </h2>
+                <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <code>function add(a, b) {
+              return a + b;
+            }</code>
+                </pre>
+
+                <h2 class="text-xl font-semibold text-gray-800 mt-4">
+                  মূল পার্থক্য:
+                </h2>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>
+                    <span class="font-semibold">Syntax:</span> Arrow function
+                    লেখা সহজ এবং সংক্ষিপ্ত।
+                  </li>
+                  <li>
+                    <span class="font-semibold">this কীওয়ার্ড:</span> Arrow
+                    functions তাদের parent scope থেকে <code>this</code> ইনহেরিট
+                    করে, যেখানে regular functions এ <code>this</code> আলাদা
+                    behave করে।
+                  </li>
+                  <li>
+                    <span class="font-semibold">Constructor:</span> Arrow
+                    functions দিয়ে constructor তৈরি করা যায় না, কিন্তু regular
+                    functions দিয়ে যায়।
+                  </li>
+                  <li>
+                    <span class="font-semibold">Hoisting:</span> Regular
+                    functions hoisting support করে, কিন্তু arrow functions করে
+                    না।
+                  </li>
+                </ul>
+
+                <h2 class="text-xl font-semibold text-gray-800 mt-4">
+                  উদাহরণ:
+                </h2>
+                <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <code>// Arrow Function
+            const greet = (name) =&gt; console.log(`Hello, ${name}`);
+            
+            // Regular Function
+            function greet(name) {
+              console.log(`Hello, ${name}`);
+            }</code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Q-4 -->
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            How JavaScript Promises work?
+          </div>
+          <div class="collapse-content text-sm">
+            <div class="max-w-6xl mx-auto p-4">
+              <p class="text-gray-700 mb-3">
+                A <code class="bg-gray-100 px-1 rounded">Promise</code> is a
+                JavaScript object that represents the eventual completion (or
+                failure) of an asynchronous operation and its resulting value.
+              </p>
+
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                States of a Promise:
+              </h3>
+              <ul class="list-disc list-inside text-gray-700 mb-4">
+                <li>
+                  <strong>Pending</strong>: Initial state, neither fulfilled nor
+                  rejected.
+                </li>
+                <li>
+                  <strong>Fulfilled</strong>: The operation completed
+                  successfully.
+                </li>
+                <li><strong>Rejected</strong>: The operation failed.</li>
+              </ul>
+
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                Basic Example:
+              </h3>
+              <pre
+                class="bg-gray-100 text-sm text-gray-800 p-4 rounded-lg overflow-x-auto mb-4"
+              >
+            <code>// Creating a Promise
+            const myPromise = new Promise((resolve, reject) =&gt; {
+              const success = true;
+            
+              if (success) {
+                resolve("Operation successful!");
+              } else {
+                reject("Something went wrong.");
+              }
+            });
+            
+            // Using the Promise
+            myPromise
+              .then(result =&gt; {
+                console.log(result); // Output: Operation successful!
+              })
+              .catch(error =&gt; {
+                console.error(error);
+              });
+            </code>
+              </pre>
+
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                Chaining Promises:
+              </h3>
+              <pre
+                class="bg-gray-100 text-sm text-gray-800 p-4 rounded-lg overflow-x-auto mb-4"
+              >
+            <code>fetch("https://api.example.com/data")
+              .then(response =&gt; response.json())
+              .then(data =&gt; {
+                console.log(data);
+              })
+              .catch(error =&gt; {
+                console.error("Error fetching data:", error);
+              });
+            </code>
+              </pre>
+
+              <p class="text-gray-700">
+                Promises help manage asynchronous tasks more easily and avoid
+                deeply nested callbacks (callback hell).
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Q-5 -->
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+          <input type="radio" name="my-accordion-3" />
+          <div class="collapse-title font-semibold">
+            How closures work in JavaScript?
+          </div>
+          <div class="collapse-content text-sm">
+            <div class="max-w-6xl mx-auto p-6 mt-10">
+              <p class="text-gray-700 mb-4">
+                A closure is created in JavaScript when a function is defined
+                inside another function and the inner function accesses
+                variables from the outer function’s scope. Even after the outer
+                function has finished executing, the inner function still has
+                access to those variables.
+              </p>
+              <h3 class="text-xl font-semibold text-gray-800 mb-2">Example:</h3>
+              <pre
+                class="bg-gray-100 p-4 rounded-lg text-sm overflow-x-auto mb-4"
+              ><code class="language-js">
+            // Outer function
+            function outerFunction() {
+              let count = 0;
+            
+              // Inner function (closure)
+              function increment() {
+                count++;
+                console.log(count);
+              }
+            
+              return increment;
+            }
+            
+            const counter = outerFunction();
+            counter(); // 1
+            counter(); // 2
+            counter(); // 3
+              </code></pre>
+              <p class="text-gray-700">
+                Here, <code class="bg-gray-200 px-1 rounded">increment</code> is
+                a closure. It remembers the value of
+                <code class="bg-gray-200 px-1 rounded">count</code> from
+                <code class="bg-gray-200 px-1 rounded">outerFunction</code>,
+                even after the outer function has returned. This is possible
+                because closures "close over" the variables they need from their
+                outer scope.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal Section -->
+      <dialog id="vocabulary_details" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="details-container"></div>
+          <div class="modal-actio ">
+            <form method="dialog" class="block">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn btn-sm btn-primary mt-2">Complete Learning</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-slate-300 py-10">
+      <div class="w-11/12 mx-auto flex justify-between items-end">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="font-semibold">Englsih</span>
+            <img src="./assets/logo.png" alt="Logo" />
+            <span class="bangla">জানালা</span>
+          </div>
+          <p class="text-sm font-bold text-slate-800">ইংরেজি শিখুন সহজে</p>
+          <p class="text-sm text-slate-800">
+            Providing ED-Tech Applications since 2025
+          </p>
+        </div>
+        <div>
+          <p class="uppercase text-sm font-medium text-slate-600">Follow US</p>
+          <ul class="flex gap-5 mt-1">
+            <li>
+              <a
+                class="text-2xl text-blue-700"
+                href="https://www.facebook.com"
+                target="_blank"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                class="text-2xl text-red-700"
+                href="https://www.youtube.com"
+                target="_blank"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                class="text-2xl text-violet-500"
+                href="https://www.instagram.com"
+                target="_blank"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                class="text-2xl text-sky-500"
+                href="https://www.twitter.com"
+                target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Custom JavaScript File -->
+    <script src="main.js"></script>
+  </body>
+</html>
